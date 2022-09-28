@@ -1,0 +1,462 @@
+inherited frmBulkStatement: TfrmBulkStatement
+  Tag = 1009
+  Left = 85
+  Top = 241
+  Width = 809
+  Height = 360
+  Caption = 'Bulk statements'
+  OldCreateOrder = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited tlbDBBase: TToolBar
+    Left = 718
+    Width = 83
+    Height = 333
+    ButtonWidth = 83
+    ParentFont = False
+    object btnPrintLoan: TToolButton
+      Left = 0
+      Top = 36
+      Caption = 'Loan  statement'
+      ImageIndex = 1
+      Wrap = True
+      OnClick = btnPrintLoanClick
+    end
+    object btnPrintClient: TToolButton
+      Left = 0
+      Top = 72
+      Caption = 'Client statement'
+      ImageIndex = 1
+      OnClick = btnPrintClientClick
+    end
+  end
+  inherited pnlBBase: TPanel
+    Width = 718
+    Height = 333
+    TabOrder = 2
+  end
+  object pnlMain: TPanel
+    Left = 0
+    Top = 0
+    Width = 718
+    Height = 333
+    Align = alClient
+    BevelOuter = bvNone
+    ParentColor = True
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 8
+      Top = 11
+      Width = 55
+      Height = 14
+      Caption = 'Filter report'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      Transparent = True
+    end
+    object Label2: TLabel
+      Left = 0
+      Top = 55
+      Width = 718
+      Height = 14
+      Align = alBottom
+      Caption = '  Current filter'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'Arial'
+      Font.Style = []
+      ParentFont = False
+      Transparent = True
+    end
+    object imgRed: TImage
+      Left = 208
+      Top = 31
+      Width = 19
+      Height = 19
+      AutoSize = True
+      Center = True
+      Picture.Data = {
+        07544269746D6170AA040000424DAA0400000000000036000000280000001300
+        0000130000000100180000000000740400000000000000000000000000000000
+        0000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C07B7B9439396310104A08084A1818523939637B7B
+        94C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C031316300004A00005A00006B00006B00006300005A00004A313163
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C01818
+        6308087308089408089408089408088408087300007300006B000063181852C0
+        C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C031317B08089C1010AD
+        0808A50808A50808A508089C08089408088408087300007300006331315AC0C0
+        C0C0C0C0C0C0C0000000C0C0C0C0C0C07B7B9C0808941010BD1010BD1010BD10
+        10BD1010BD1010AD1010AD08089C08089408087300007300004A7B7B94C0C0C0
+        C0C0C0000000C0C0C0C0C0C039399C1818BD1818CE2121CE2121CE2121CE2121
+        CE1818BD1818BD1010B50808A508089408088400005A393963C0C0C0C0C0C000
+        0000C0C0C0C0C0C02121AD1818D62929D62929DE3939E73939E73131DE2929D6
+        2121CE1818BD1010B50808A5080894080873181852C0C0C0C0C0C0000000C0C0
+        C0C0C0C01818BD2121E73939EF3939EF4242E74242E74242E73939E73131DE29
+        29D61818BD1010B508089C080884080852C0C0C0C0C0C0000000C0C0C0C0C0C0
+        2929D63131EF4242EF4A4AF75252FF5A5AF75252F74A4AEF4242E73131DE2121
+        CE1818BD1010AD08089418185AC0C0C0C0C0C0000000C0C0C0C0C0C04242E731
+        31FF4A4AF75A5AFF7373FF7373FF6B6BFF5A5AFF5252F74242E73131DE2121CE
+        1010B5080884393973C0C0C0C0C0C0000000C0C0C0C0C0C07B7BCE3131FF5252
+        FF6B6BFF8C8CFFADADFF8C8CFF6B6BFF5A5AF74A4AEF3939E72121D61818BD08
+        08737B7B9CC0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C04A4AF74A4AF76B6BFF
+        8C8CFFADADFF9C9CFF7373FF5A5AFF4A4AF73939E72929D61010B531318CC0C0
+        C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C04242FF5A5AFF7373FF84
+        84FF7B7BFF6B6BFF5A5AFF4A4AF73939EF2121D62121A5C0C0C0C0C0C0C0C0C0
+        C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C05252F75252FF6363FF6363
+        FF5A5AFF5252FF3939F72121E73939BDC0C0C0C0C0C0C0C0C0C0C0C0C0C0C000
+        0000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C08484DE5252F74A4AF74242FF
+        3939F74A4AE77B7BCEC0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000}
+      Transparent = True
+      Visible = False
+    end
+    object imgGreen: TImage
+      Left = 186
+      Top = 31
+      Width = 19
+      Height = 19
+      AutoSize = True
+      Center = True
+      Picture.Data = {
+        07544269746D6170AA040000424DAA0400000000000036000000280000001300
+        000013000000010018000000000074040000C40E0000C40E0000000000000000
+        0000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0849484395A39184A18084208184A18395A397B8C
+        7BC0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0316331004200005200086B08086B08086B08004A00004200315A31
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C01863
+        18087B08088C08088C08088408087B08087308086B08086B08005200184A18C0
+        C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0317B3108940808A508
+        10A51010A510109C10089408088C08087B08087308086B08005200315231C0C0
+        C0C0C0C0C0C0C0000000C0C0C0C0C0C084A58408940818BD1818BD1818BD1821
+        BD2118B51818AD1810A510089408088408087308086B08004200849484C0C0C0
+        C0C0C0000000C0C0C0C0C0C0399C3910C61018CE1829CE2921D62129CE2929CE
+        2921C62121BD2118AD18109C10088C08087308005200395A39C0C0C0C0C0C000
+        0000C0C0C0C0C0C021AD2121D62129DE2931E73139DE3939E73939DE3931D631
+        29CE2921BD2118AD18109C10088408087308184A18C0C0C0C0C0C0000000C0C0
+        C0C0C0C018CE1821DE2131EF3142EF424AEF4A4AEF4A4AEF4A42E74239DE3931
+        D63121C62118AD18109C10088408084A08C0C0C0C0C0C0000000C0C0C0C0C0C0
+        29DE2931F7314AEF4A52FF525AFF5A63F7635AF75A52EF524AEF4A39DE3929CE
+        2921BD2110A510088C08185218C0C0C0C0C0C0000000C0C0C0C0C0C042E74231
+        FF314AFF4A5AFF5A73FF737BFF7B73FF7363F76352EF5242E74231D63121C621
+        18B518087B08396B39C0C0C0C0C0C0000000C0C0C0C0C0C084D68431FF3152FF
+        526BFF6B8CFF8CADFFAD94FF9473FF735AF75A4AEF4A39E73929CE2918BD1808
+        6B087B9C7BC0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C04AEF4A4AFF4A6BFF6B
+        8CFF8CADFFAD9CFF9C7BFF7B63FF634AF74A39E73929DE2918B518318C31C0C0
+        C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C042F7425AFF5A73FF737B
+        FF7B7BFF7B6BFF6B5AFF5A4AF74A31EF3121D621219C21C0C0C0C0C0C0C0C0C0
+        C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C052EF524AFF4A63FF6363FF
+        635AFF5A4AFF4A39FF3921DE2139BD39C0C0C0C0C0C0C0C0C0C0C0C0C0C0C000
+        0000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C08CDE8C52EF5242F74239FF39
+        39FF3942E74284C684C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000}
+      Transparent = True
+      Visible = False
+    end
+    object grdLoanSum: TDBGrdClr
+      Left = 0
+      Top = 157
+      Width = 718
+      Height = 101
+      Align = alBottom
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      DataSource = dtmLS.dtsBulkState
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgTabs, dgConfirmDelete, dgCancelOnExit]
+      ReadOnly = True
+      TabOrder = 0
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -11
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      OnDrawColumnCell = grdLoanSumDrawColumnCell
+      OddColor = clInfoBk
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'EntCode'
+          Title.Caption = 'Code'
+          Width = 55
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Surname'
+          Width = 104
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Name'
+          Width = 90
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'RegNo'
+          Title.Caption = 'ID no.'
+          Width = 89
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'LoanType'
+          Title.Caption = 'LT'
+          Width = 27
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'PayIns'
+          Title.Alignment = taRightJustify
+          Title.Caption = 'Pay. inst.'
+          Width = 63
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'StartDate'
+          Title.Caption = 'Start date'
+          Width = 66
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'Status'
+          Width = 61
+          Visible = True
+        end>
+    end
+    object pnlBatchNote: TPanel
+      Left = 0
+      Top = 258
+      Width = 718
+      Height = 75
+      Align = alBottom
+      BevelOuter = bvNone
+      ParentColor = True
+      TabOrder = 1
+      object Label13: TLabel
+        Left = 8
+        Top = 8
+        Width = 140
+        Height = 14
+        Caption = 'Note to attach to bulk printout'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+      object memBulkNote: TMemo
+        Left = 0
+        Top = 24
+        Width = 718
+        Height = 51
+        Align = alBottom
+        TabOrder = 0
+      end
+    end
+    object memFilter: TMemo
+      Left = 0
+      Top = 69
+      Width = 718
+      Height = 67
+      Align = alBottom
+      ReadOnly = True
+      ScrollBars = ssVertical
+      TabOrder = 2
+    end
+    object btnSetFilter: TBitBtn
+      Left = 72
+      Top = 4
+      Width = 120
+      Height = 28
+      Caption = 'Set filter'
+      TabOrder = 3
+      OnClick = btnSetFilterClick
+      Glyph.Data = {
+        AA040000424DAA04000000000000360000002800000013000000130000000100
+        1800000000007404000000000000000000000000000000000000C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C07B7B9439396310104A08084A1818523939637B7B94C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0313163
+        00004A00005A00006B00006B00006300005A00004A313163C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C018186308087308089408
+        089408089408088408087300007300006B000063181852C0C0C0C0C0C0C0C0C0
+        C0C0C0000000C0C0C0C0C0C0C0C0C031317B08089C1010AD0808A50808A50808
+        A508089C08089408088408087300007300006331315AC0C0C0C0C0C0C0C0C000
+        0000C0C0C0C0C0C07B7B9C0808941010BD1010BD1010BD1010BD1010BD1010AD
+        1010AD08089C08089408087300007300004A7B7B94C0C0C0C0C0C0000000C0C0
+        C0C0C0C039399C1818BD1818CE2121CE2121CE2121CE2121CE1818BD1818BD10
+        10B50808A508089408088400005A393963C0C0C0C0C0C0000000C0C0C0C0C0C0
+        2121AD1818D62929D62929DE3939E73939E73131DE2929D62121CE1818BD1010
+        B50808A5080894080873181852C0C0C0C0C0C0000000C0C0C0C0C0C01818BD21
+        21E73939EF3939EF4242E74242E74242E73939E73131DE2929D61818BD1010B5
+        08089C080884080852C0C0C0C0C0C0000000C0C0C0C0C0C02929D63131EF4242
+        EF4A4AF75252FF5A5AF75252F74A4AEF4242E73131DE2121CE1818BD1010AD08
+        089418185AC0C0C0C0C0C0000000C0C0C0C0C0C04242E73131FF4A4AF75A5AFF
+        7373FF7373FF6B6BFF5A5AFF5252F74242E73131DE2121CE1010B50808843939
+        73C0C0C0C0C0C0000000C0C0C0C0C0C07B7BCE3131FF5252FF6B6BFF8C8CFFAD
+        ADFF8C8CFF6B6BFF5A5AF74A4AEF3939E72121D61818BD0808737B7B9CC0C0C0
+        C0C0C0000000C0C0C0C0C0C0C0C0C04A4AF74A4AF76B6BFF8C8CFFADADFF9C9C
+        FF7373FF5A5AFF4A4AF73939E72929D61010B531318CC0C0C0C0C0C0C0C0C000
+        0000C0C0C0C0C0C0C0C0C0C0C0C04242FF5A5AFF7373FF8484FF7B7BFF6B6BFF
+        5A5AFF4A4AF73939EF2121D62121A5C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C05252F75252FF6363FF6363FF5A5AFF5252FF39
+        39F72121E73939BDC0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C08484DE5252F74A4AF74242FF3939F74A4AE77B7B
+        CEC0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0000000C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
+        C0C0C0C0C0C0C0C0C0C0C0000000}
+    end
+    object btnFilterDet: TBitBtn
+      Left = 192
+      Top = 4
+      Width = 120
+      Height = 28
+      Caption = 'Filter detail'
+      TabOrder = 4
+      OnClick = btnFilterDetClick
+    end
+    object pnlSort: TPanel
+      Left = 0
+      Top = 136
+      Width = 718
+      Height = 21
+      Align = alBottom
+      BevelOuter = bvNone
+      ParentColor = True
+      TabOrder = 5
+      object Label8: TLabel
+        Left = 8
+        Top = 4
+        Width = 22
+        Height = 14
+        Caption = 'Data'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+    end
+    object GroupBox1: TGroupBox
+      Left = 320
+      Top = 5
+      Width = 273
+      Height = 50
+      TabOrder = 6
+      object pnlTransDate: TPanel
+        Left = 4
+        Top = 15
+        Width = 261
+        Height = 32
+        BevelOuter = bvNone
+        ParentColor = True
+        TabOrder = 0
+        object Label4: TLabel
+          Left = 5
+          Top = 9
+          Width = 23
+          Height = 13
+          Caption = 'From'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object Label5: TLabel
+          Left = 143
+          Top = 9
+          Width = 13
+          Height = 13
+          Caption = 'To'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clNavy
+          Font.Height = -11
+          Font.Name = 'MS Sans Serif'
+          Font.Style = []
+          ParentFont = False
+          Transparent = True
+        end
+        object dtpFrom: TDateTimePicker
+          Left = 34
+          Top = 5
+          Width = 97
+          Height = 20
+          CalAlignment = dtaLeft
+          Date = 36560.4779306713
+          Time = 36560.4779306713
+          DateFormat = dfShort
+          DateMode = dmComboBox
+          Enabled = False
+          Kind = dtkDate
+          ParseInput = False
+          TabOrder = 0
+        end
+        object dtpTo: TDateTimePicker
+          Left = 162
+          Top = 5
+          Width = 97
+          Height = 20
+          CalAlignment = dtaLeft
+          Date = 36560.4779306713
+          Time = 36560.4779306713
+          DateFormat = dfShort
+          DateMode = dmComboBox
+          Enabled = False
+          Kind = dtkDate
+          ParseInput = False
+          TabOrder = 1
+        end
+      end
+    end
+    object chbTransDate: TCheckBox
+      Left = 327
+      Top = 4
+      Width = 106
+      Height = 17
+      Caption = 'Transaction dates'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clNavy
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 7
+      OnClick = chbTransDateClick
+    end
+  end
+end

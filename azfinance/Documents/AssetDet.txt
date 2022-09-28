@@ -1,0 +1,22 @@
+RecID 
+LoanId
+Other fields
+------------
+Asset type
+Serial / Reg. No
+YearModel
+-Vat in
+-Vat out
+-Engine no.
+-Chassis no.
+
+CDS fields
+------------
+Date sold
+Date add
+UserID
+SupplierRef
+Description
+Del Note number
+Date delivered
+-Payment reference

@@ -1,0 +1,464 @@
+object frmSendFax: TfrmSendFax
+  Left = 393
+  Top = 182
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Send Fax'
+  ClientHeight = 458
+  ClientWidth = 569
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  DesignSize = (
+    569
+    458)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 287
+    Top = 8
+    Width = 273
+    Height = 153
+    Anchors = [akLeft, akTop, akBottom]
+    Caption = 'From'
+    TabOrder = 2
+    DesignSize = (
+      273
+      153)
+    object Label1: TLabel
+      Left = 16
+      Top = 26
+      Width = 27
+      Height = 13
+      Caption = 'Name'
+    end
+    object Label2: TLabel
+      Left = 16
+      Top = 74
+      Width = 38
+      Height = 13
+      Caption = 'Fax No.'
+    end
+    object Label3: TLabel
+      Left = 16
+      Top = 97
+      Width = 34
+      Height = 13
+      Caption = 'Tel No.'
+    end
+    object Label8: TLabel
+      Left = 16
+      Top = 50
+      Width = 45
+      Height = 13
+      Caption = 'Company'
+    end
+    object Label9: TLabel
+      Left = 16
+      Top = 120
+      Width = 24
+      Height = 13
+      Caption = 'Email'
+    end
+    object edtFromName: TEdit
+      Left = 64
+      Top = 23
+      Width = 193
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object edtFromFaxNo: TEdit
+      Left = 64
+      Top = 71
+      Width = 193
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object edtFromTelNo: TEdit
+      Left = 64
+      Top = 94
+      Width = 193
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object edtFromCompany: TEdit
+      Left = 64
+      Top = 47
+      Width = 193
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object edtFromEmail: TEdit
+      Left = 64
+      Top = 117
+      Width = 193
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      ReadOnly = True
+      TabOrder = 4
+    end
+  end
+  object btnSend: TButton
+    Left = 406
+    Top = 426
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Caption = 'Send'
+    TabOrder = 3
+    OnClick = btnSendClick
+  end
+  object GroupBox2: TGroupBox
+    Left = 8
+    Top = 8
+    Width = 273
+    Height = 153
+    Anchors = [akLeft, akTop, akBottom]
+    Caption = 'To'
+    TabOrder = 0
+    DesignSize = (
+      273
+      153)
+    object Label4: TLabel
+      Left = 16
+      Top = 27
+      Width = 27
+      Height = 13
+      Caption = 'Name'
+    end
+    object lblFaxEmail: TLabel
+      Left = 16
+      Top = 50
+      Width = 50
+      Height = 13
+      Caption = 'Fax/Email.'
+    end
+    object lblCostCode: TLabel
+      Left = 16
+      Top = 74
+      Width = 50
+      Height = 13
+      Caption = 'Cost Code'
+    end
+    object edtToName: TEdit
+      Left = 72
+      Top = 24
+      Width = 185
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 0
+      OnChange = edtToNameChange
+    end
+    object edtToFaxNo: TEdit
+      Left = 72
+      Top = 47
+      Width = 185
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      TabOrder = 1
+      OnChange = edtToNameChange
+    end
+    object edtCostCode: TEdit
+      Left = 72
+      Top = 71
+      Width = 185
+      Height = 21
+      Anchors = [akLeft, akTop, akRight]
+      Color = clBtnFace
+      ReadOnly = True
+      TabOrder = 2
+      Text = '11001'
+      OnChange = edtToNameChange
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 8
+    Top = 264
+    Width = 554
+    Height = 155
+    Anchors = [akLeft, akRight, akBottom]
+    Caption = 'Documents'
+    TabOrder = 1
+    DesignSize = (
+      554
+      155)
+    object Label6: TLabel
+      Left = 10
+      Top = 24
+      Width = 39
+      Height = 13
+      Caption = 'To Send'
+    end
+    object Label7: TLabel
+      Left = 298
+      Top = 24
+      Width = 43
+      Height = 13
+      Caption = 'Available'
+    end
+    object btnAdd: TSpeedButton
+      Left = 266
+      Top = 48
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        06030000424D060300000000000036000000280000000F0000000F0000000100
+        180000000000D0020000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFF040404040404040404040404040404FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9933FF9933FF
+        9933FF9933040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF9933FFCC33FFCC33FF9933040404FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9933FFCC33FF
+        CC33FF9933040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF9933FFCC33FFCC33FF9933040404FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000040404040404040404040404040404FF9933FFCC33FF
+        CC33FF9933040404040404040404040404040404000000000000FF6633FF9933
+        FF9933FF9933FF9933FF9933FFCC33FFCC33FF9933FF9933FF9933FF9933FF99
+        33FF9933000000000000FF6633FFFFCCFFCC33FFCC33FFCC33FFCC33FFCC33FF
+        CC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33000000000000FF6633FFFFCC
+        FFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFF
+        CCFFFFCC000000000000FF6633FF6633FF6633FF6633FF6633FF6633FFFFCCFF
+        FFCCFF6633040404040404040404040404040404000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF6633FFFFCCFFFFCCFF6633040404FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6633FFFFCCFF
+        FFCCFF6633040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF6633FFFFCCFFFFCCFF6633040404FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6633FFFFCCFF
+        FFCCFF6633040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF6633FF6633FF6633FF6633040404FFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000}
+      OnClick = btnAddClick
+    end
+    object btnAddAll: TSpeedButton
+      Left = 266
+      Top = 73
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        18000000000000030000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF040404040404040404040404040404FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        9933FF9933FF9933FF9933040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9933FFCC33FFCC33FF9933040404FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF040404040404040404FF
+        9933FFCC33FFCC33FF9933040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFF040404040404040404040404FF9933FFCC33FFCC33FF99330404040404
+        04040404040404000000FFFFFFFFFFFFFFFFFFFF6633FF9933FF9933FF9933FF
+        9933FFCC33FFCC33FF9933FF9933FF9933FF9933FF9933000000FFFFFFFFFFFF
+        FFFFFFFF6633FFFFCCFFCC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC
+        33FFCC33FFCC33000000040404040404040404FF6633FFFFCCFFFFCCFFFFCCFF
+        FFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCC000000FF6633FF9933
+        FF9933FF6633FF6633FF6633FF6633FF6633FFFFCCFFFFCCFF66330404040404
+        04040404040404000000FF6633FFFFCCFFCC33FFCC33FFCC33FFCC33FFCC33FF
+        6633FFFFCCFFFFCCFF6633040404000000FFFFFFFFFFFFFFFFFFFF6633FFFFCC
+        FFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFF6633FFFFCCFFFFCCFF66330404040000
+        00FFFFFFFFFFFFFFFFFFFF6633FF6633FF6633FF6633FF6633FFFFCCFFFFCCFF
+        6633FFFFCCFFFFCCFF6633040404000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF6633FFFFCCFFFFCCFF6633FF6633FF6633FF6633040404FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6633FFFFCCFFFFCCFF
+        6633040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF6633FFFFCCFFFFCCFF6633040404FFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6633FF6633FF6633FF
+        6633040404FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      OnClick = btnAddClick
+    end
+    object btnRemove: TSpeedButton
+      Left = 266
+      Top = 98
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        06030000424D060300000000000036000000280000000F0000000F0000000100
+        180000000000D0020000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF00000004040404040404040404040404040404040404040404
+        0404040404040404040404040404040404040404000000000000FF6633FF9933
+        FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF99
+        33FF9933000000000000FF6633FFFFCCFFCC33FFCC33FFCC33FFCC33FFCC33FF
+        CC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33000000000000FF6633FFFFCC
+        FFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFF
+        CCFFFFCC000000000000FF6633FF6633FF6633FF6633FF6633FF6633FF6633FF
+        6633FF6633FF6633FF6633FF6633FF6633FF6633000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000}
+      OnClick = btnAddClick
+    end
+    object btnRemoveAll: TSpeedButton
+      Left = 266
+      Top = 122
+      Width = 23
+      Height = 22
+      Glyph.Data = {
+        06030000424D060300000000000036000000280000000F0000000F0000000100
+        180000000000D0020000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFF04040404040404040404040404040404
+        0404040404040404040404040404040404040404000000000000FFFFFFFFFFFF
+        FF6633FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF9933FF99
+        33FF9933000000000000FFFFFFFFFFFFFF6633FFFFCCFFCC33FFCC33FFCC33FF
+        CC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33000000000000040404040404
+        FF6633FFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFF
+        CCFFFFCC000000000000FF6633FF9933FF6633FF6633FF6633FF6633FF6633FF
+        6633FF6633FF6633FF6633FF6633FF6633FF6633000000000000FF6633FFFFCC
+        FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC33FFCC330000
+        00FFFFFFFFFFFF000000FF6633FFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFFFFCCFF
+        FFCCFFFFCCFFFFCCFFFFCCFFFFCC000000FFFFFFFFFFFF000000FF6633FF6633
+        FF6633FF6633FF6633FF6633FF6633FF6633FF6633FF6633FF6633FF66330000
+        00FFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF000000}
+      OnClick = btnAddClick
+    end
+    object lvwAvailable: TListView
+      Left = 295
+      Top = 40
+      Width = 248
+      Height = 105
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Columns = <>
+      PopupMenu = ppmFiles
+      ShowColumnHeaders = False
+      SmallImages = imlFiles
+      TabOrder = 1
+      ViewStyle = vsList
+      OnDblClick = lvwAvailableDblClick
+    end
+    object lvwAttach: TListView
+      Left = 8
+      Top = 40
+      Width = 248
+      Height = 105
+      Anchors = [akLeft, akTop, akRight, akBottom]
+      Columns = <>
+      PopupMenu = ppmFiles
+      ShowColumnHeaders = False
+      SmallImages = imlFiles
+      TabOrder = 0
+      ViewStyle = vsList
+      OnDblClick = lvwAttachDblClick
+    end
+  end
+  object btnCancel: TButton
+    Left = 487
+    Top = 426
+    Width = 75
+    Height = 25
+    Anchors = [akRight, akBottom]
+    Caption = 'Cancel'
+    ModalResult = 2
+    TabOrder = 4
+  end
+  object GroupBox4: TGroupBox
+    Left = 8
+    Top = 161
+    Width = 553
+    Height = 102
+    Caption = 'Message'
+    TabOrder = 5
+    object lblMesgChars: TLabel
+      Left = 520
+      Top = 8
+      Width = 22
+      Height = 13
+      Alignment = taRightJustify
+      Caption = '0/69'
+    end
+    object memNote: TMemo
+      Left = 8
+      Top = 24
+      Width = 537
+      Height = 66
+      Lines.Strings = (
+        ' Herewith please find the attach quotation as per our telephone '
+        'conversation. '
+        ''
+        
+          'Please insure that you sign at the option that you desire and wh' +
+          'ere '
+        'your name and surname is reflected including today'#39's date.'
+        ''
+        
+          'Please note that this quotation is only valid for 5 business day' +
+          's '
+        'from the date of issue, please fax it back to the fax number '
+        'reflecting on the quotation as soon as possible. '
+        ''
+        'Hope you find this in order.'
+        '')
+      ScrollBars = ssVertical
+      TabOrder = 0
+      OnChange = memNoteChange
+    end
+  end
+  object imlFiles: TImageList
+    BkColor = clWhite
+    Left = 184
+    Top = 16
+  end
+  object ppmFiles: TPopupMenu
+    OnPopup = ppmFilesPopup
+    Left = 184
+    Top = 281
+    object Open1: TMenuItem
+      Caption = 'Open'
+      OnClick = Open1Click
+    end
+  end
+  object SMTP: TIdSMTP
+    MaxLineAction = maException
+    ReadTimeout = 0
+    Port = 25
+    AuthenticationType = atNone
+    Left = 152
+    Top = 424
+  end
+  object MailMessage: TIdMessage
+    AttachmentEncoding = 'MIME'
+    BccList = <>
+    CCList = <>
+    Encoding = meMIME
+    Recipients = <>
+    ReplyTo = <>
+    Left = 200
+    Top = 424
+  end
+end
